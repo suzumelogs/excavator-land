@@ -77,7 +77,7 @@ const ProductHot = () => {
       <div className='flex justify-between items-center'>
         <div className='flex gap-[10px] items-center'>
           <FireIcon />
-          <p className='font-bold text-[24px] sm:text-[30px] uppercase text-[#20201E]'>Sản phẩm hot</p>
+          <p className='font-bold text-[18px] sm:text-[30px] uppercase text-[#20201E]'>Sản phẩm hot</p>
         </div>
         <div className='flex gap-[10px] sm:gap-[20px] items-center'>
           <button

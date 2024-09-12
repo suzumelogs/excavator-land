@@ -76,7 +76,7 @@ const Product = () => {
       <div className='flex justify-between items-center'>
         <div className='flex gap-[10px] items-center'>
           <QuickiIcon />
-          <p className='font-bold text-[24px] sm:text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
+          <p className='font-bold text-[18px] sm:text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
         </div>
         <div className='flex gap-[20px] items-center'>
           <button
