@@ -76,20 +76,20 @@ const Product = () => {
       <div className='flex justify-between items-center'>
         <div className='flex gap-[10px] items-center'>
           <QuickiIcon />
-          <p className='font-bold text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
+          <p className='font-bold text-[24px] sm:text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
         </div>
         <div className='flex gap-[20px] items-center'>
           <button
             onClick={handlePrev}
             aria-label='Previous product'
-            className='w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
+            className='w-[36px] h-[36px] sm:w-[48px] sm:h-[48px] bg-primary rounded-[8px] sm:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
           >
             <ArrowLeftWhiteIcon />
           </button>
           <button
             onClick={handleNext}
             aria-label='Next product'
-            className='w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
+            className='w-[36px] h-[36px] sm:w-[48px] sm:h-[48px] bg-primary rounded-[8px] sm:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
           >
             <ArrowRightWhiteIcon />
           </button>
