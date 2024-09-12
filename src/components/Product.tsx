@@ -9,6 +9,16 @@ import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
 import { products } from '~/constants'
+import styled from 'styled-components'
+
+const StyledSlider = styled(Slider)`
+  .slick-slide {
+    padding: 5px;
+  }
+  .slick-track {
+    display: flex;
+  }
+`
 
 const Product = () => {
   const sliderRef = useRef<Slider | null>(null)
@@ -64,8 +74,8 @@ const Product = () => {
   }
 
   return (
-    <div className='w-full px-[10px] sm:px-[20px] mt-10'>
-      <div className='flex justify-between items-center'>
+    <div className='w-full px-[5px] sm:px-[10px] mt-10'>
+      <div className='flex justify-between items-center px-[5px] sm:px-[10px]'>
         <div className='flex gap-[10px] items-center'>
           <QuickiIcon />
           <p className='font-bold text-[18px] sm:text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
@@ -88,7 +98,7 @@ const Product = () => {
         </div>
       </div>
       <div className='mt-4'>
-        <Slider {...settings} ref={sliderRef}>
+        <StyledSlider {...settings} ref={sliderRef}>
           {products.map((product) => (
             <div key={product.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
               <div className='relative'>
@@ -150,7 +160,7 @@ const Product = () => {
               </div>
             </div>
           ))}
-        </Slider>
+        </StyledSlider>
       </div>
     </div>
   )
