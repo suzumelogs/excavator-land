@@ -1,3 +1,6 @@
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import KobelcoImage from '../assets/images/logo/kbc-logo.png'
 import HitachiImage from '../assets/images/logo/htc-logo.png'
 import YanmarImage from '../assets/images/logo/ym-logo.png'
@@ -12,12 +15,49 @@ const logos = [
   { src: HyundaiImage, alt: 'Hyundai Logo' }
 ]
 
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  arrows: false,
+  pauseOnHover: false,
+  pauseOnDotsHover: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ]
+}
+
 const Business = () => {
   return (
-    <div className='flex justify-between w-full px-[30px] py-[53px]'>
-      {logos.map((logo, index) => (
-        <img key={index} src={logo.src} alt={logo.alt} />
-      ))}
+    <div className='w-full px-[30px] py-[53px]'>
+      <Slider {...settings}>
+        {logos.map((logo, index) => (
+          <div key={index} className='p-4 flex justify-between'>
+            <img src={logo.src} alt={logo.alt} className='object-contain' />
+          </div>
+        ))}
+      </Slider>
     </div>
   )
 }

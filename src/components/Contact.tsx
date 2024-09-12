@@ -30,7 +30,7 @@ const Contact = () => {
             rows={4}
           />
           <div className='flex justify-end max-w-full md:max-w-[710px] mt-[10px]'>
-            <button className='px-4 py-[9px] w-[150px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 hover:opacity-90 font-semibold'>
+            <button className='px-4 py-[9px] w-[150px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
               Gửi yêu cầu
             </button>
           </div>
