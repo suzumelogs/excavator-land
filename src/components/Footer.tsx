@@ -111,7 +111,7 @@ const Footer = () => {
             <div className='flex flex-col gap-[30px]'>
               <div className='flex flex-col gap-[10px]'>
                 <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Mạng xã hội</p>
-                <div className='flex gap-4 justify-center sm:justify-start'>
+                <div className='flex gap-4 sm:justify-start'>
                   <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
                     <YoutubeIcon />
                   </span>

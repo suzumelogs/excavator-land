@@ -80,14 +80,15 @@
 
 // export default AutoSlider
 
-import Slider1 from '../../assets/images/sliders/slider-1.png'
+import FinalMMasterImage from '../../assets/images/finals/final-master.png'
 
 const AutoSlider = () => {
   return (
     <div className='relative w-full mx-auto'>
-      <div className='flex items-center justify-center'>
-        <img src={Slider1} alt={`Slide`} className='object-contain w-full h-full ' />
-      </div>
+      <img src={FinalMMasterImage} alt='Slide' className='object-contain w-full h-full' />
+      <button className='absolute left-[50px] bottom-[70px] px-4 py-[11px] w-full sm:w-[165px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0 hidden sm:block'>
+        Đăng ký ngay
+      </button>
     </div>
   )
 }
