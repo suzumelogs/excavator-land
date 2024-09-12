@@ -144,12 +144,12 @@ const Product = () => {
                     </div>
                     <div className='flex flex-col sm:flex-row justify-between mt-4'>
                       <div className='flex flex-col'>
-                        <p className='text-[12px] sm:text-[14px] text-[#4C4A48] font-semibold flex justify-end'>
+                        <p className='text-[12px] sm:text-[14px] text-[#4C4A48] font-semibold flex justify-start sm:justify-end'>
                           Hết hạn sau
                         </p>
                         <p className='text-[16px] sm:text-[18px] text-[#E42024] font-bold'>{product.expiry}</p>
                       </div>
-                      <button className='px-4 py-2 w-full sm:w-[202px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
+                      <button className='px-4 py-2 w-full sm:w-[202px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0'>
                         Đặt hàng
                       </button>
                     </div>
