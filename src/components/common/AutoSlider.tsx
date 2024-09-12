@@ -73,7 +73,7 @@ const AutoSlider: React.FC = () => {
             <img
               src={slide}
               alt={`Slide ${index + 1}`}
-              className='object-contain w-full h-full max-h-[450px] sm:max-h-[550px]'
+              className='object-fill w-full h-full max-h-[450px] sm:max-h-[550px]'
             />
           </div>
         ))}
