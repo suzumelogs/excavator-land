@@ -85,7 +85,7 @@ import FinalMMasterImage from '../../assets/images/finals/final-master.png'
 const AutoSlider = () => {
   return (
     <div className='relative w-full mx-auto'>
-      <img src={FinalMMasterImage} alt='Slide' className='object-contain w-full h-full' />
+      <img src={FinalMMasterImage} alt='Slide' className='object-fill sm:object-contain w-full h-[250px] sm:h-full' />
       <button className='absolute left-[50px] bottom-[70px] px-4 py-[11px] w-full sm:w-[165px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0 hidden sm:block'>
         Đăng ký ngay
       </button>
