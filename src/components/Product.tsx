@@ -8,6 +8,7 @@ import Product1Image from '../assets/images/product-1.png'
 import Product2Image from '../assets/images/product-1.png'
 import Product3Image from '../assets/images/product-1.png'
 import Product4Image from '../assets/images/product-1.png'
+import { useState } from 'react'
 
 const products = [
   {
@@ -57,10 +58,36 @@ const products = [
     oldPrice: '2.500.000.000đ',
     newPrice: '2.500.000.000đ',
     expiry: '3d:5h:60m'
+  },
+  {
+    id: 5,
+    image: Product4Image,
+    title: 'Yanmar Compact Excavators Summarized - 2017',
+    location: 'Hà nội',
+    year: '2017',
+    usage: '1000 giờ',
+    deliveryTime: '15 -20 ngày',
+    oldPrice: '2.500.000.000đ',
+    newPrice: '2.500.000.000đ',
+    expiry: '3d:5h:60m'
   }
 ]
 
 const Product = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const itemsToShow = 4
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
+
+  const handleNext = () => {
+    if (currentIndex < products.length - itemsToShow) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
   return (
     <div className='w-full px-[20px] mt-10'>
       <div className='flex justify-between items-center'>
@@ -69,18 +96,26 @@ const Product = () => {
           <p className='font-bold text-[30px] uppercase text-accent'>Sản phẩm đặt trước</p>
         </div>
         <div className='flex gap-[20px] items-center'>
-          <button className='w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
+          <button
+            onClick={handlePrev}
+            className={`w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300 ${currentIndex === 0 ? 'opacity-50' : ''}`}
+            disabled={currentIndex === 0}
+          >
             <ArrowLeftWhiteIcon />
           </button>
-          <button className='w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
+          <button
+            onClick={handleNext}
+            className={`w-[48px] h-[48px] bg-primary rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300 ${currentIndex >= products.length - itemsToShow ? 'opacity-50' : ''}`}
+            disabled={currentIndex >= products.length - itemsToShow}
+          >
             <ArrowRightWhiteIcon />
           </button>
         </div>
       </div>
       {/* Items */}
-      <div className='flex flex-wrap gap-4 mt-4 justify-between'>
-        {products.map((product) => (
-          <div key={product.id} className='border max-w-[100%]  rounded-[10px] overflow-hidden'>
+      <div className='flex gap-4 mt-4 justify-between overflow-hidden'>
+        {products.slice(currentIndex, currentIndex + itemsToShow).map((product) => (
+          <div key={product.id} className='border max-w-[100%] rounded-[10px] overflow-hidden'>
             <div className='relative'>
               <img
                 src={product.image}
@@ -93,6 +128,7 @@ const Product = () => {
                   <LocationIcon />
                   {product.location}
                 </span>
+                {/* Other product details */}
                 <div className='flex flex-col gap-2'>
                   <div className='flex justify-between items-center text-[12px] sm:text-[14px] font-medium text-[#4C4A48] mt-2'>
                     <p>Năm sản xuất</p>
