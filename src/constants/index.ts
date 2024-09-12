@@ -54,6 +54,7 @@ export const products = [
   },
   {
     id: 5,
+    image: Product4Image,
     title: 'Yanmar Compact Excavators Summarized - 2017',
     location: 'Hà nội',
     year: '2017',

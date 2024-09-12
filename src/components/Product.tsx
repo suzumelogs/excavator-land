@@ -1,3 +1,4 @@
+import React, { useRef } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -7,8 +8,17 @@ import ArrowRightWhiteIcon from '../assets/svgs/arrow-right-white-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
-import { useRef } from 'react'
 import { products } from '~/constants'
+import styled from 'styled-components'
+
+const StyledSlider = styled(Slider)`
+  .slick-slide {
+    margin: 0 9px; /* Khoảng cách 18px giữa các item */
+  }
+  .slick-track {
+    display: flex;
+  }
+`
 
 const Product = () => {
   const sliderRef = useRef<Slider | null>(null)
@@ -21,7 +31,9 @@ const Product = () => {
     slidesToScroll: 1,
     nextArrow: <ArrowRightWhiteIcon />,
     prevArrow: <ArrowLeftWhiteIcon />,
-    centerPadding: '18px',
+    centerMode: false,
+    arrows: false,
+    centerPadding: '0px',
     responsive: [
       {
         breakpoint: 1024,
@@ -83,11 +95,10 @@ const Product = () => {
           </button>
         </div>
       </div>
-      {/* Slider */}
       <div className='mt-4'>
-        <Slider {...settings} ref={sliderRef}>
+        <StyledSlider {...settings} ref={sliderRef}>
           {products.map((product) => (
-            <div key={product.id} className='border max-w-[100%] rounded-[10px] overflow-hidden'>
+            <div key={product.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
               <div className='relative'>
                 <img
                   src={product.image}
@@ -100,7 +111,6 @@ const Product = () => {
                     <LocationIcon />
                     {product.location}
                   </span>
-                  {/* Other product details */}
                   <div className='flex flex-col gap-2'>
                     <div className='flex justify-between items-center text-[12px] sm:text-[14px] font-medium text-[#4C4A48] mt-2'>
                       <p>Năm sản xuất</p>
@@ -148,7 +158,7 @@ const Product = () => {
               </div>
             </div>
           ))}
-        </Slider>
+        </StyledSlider>
       </div>
     </div>
   )
