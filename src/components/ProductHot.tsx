@@ -152,7 +152,7 @@ const ProductHot = () => {
                       <button className='w-[36px] h-[36px] sm:w-[44px] sm:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[8px] sm:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
                         <CartIcon />
                       </button>
-                      <button className='px-4 py-2 w-full sm:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
+                      <button className='px-4 py-2 w-full sm:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0'>
                         Đặt hàng
                       </button>
                     </div>
