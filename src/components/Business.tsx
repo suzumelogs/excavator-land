@@ -14,33 +14,10 @@ const logos = [
 
 const Business = () => {
   return (
-    <div className='relative overflow-hidden w-full py-10'>
-      <div className='flex items-center animate-scroll gap-6'>
-        {logos.map((logo, index) => (
-          <img key={index} src={logo.src} alt={logo.alt} className='w-40' />
-        ))}
-
-        {/* Nhân đôi danh sách logo để tạo hiệu ứng liên tục */}
-        {logos.map((logo, index) => (
-          <img key={index + logos.length} src={logo.src} alt={logo.alt} className='w-40' />
-        ))}
-      </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-          display: flex;
-          white-space: nowrap;
-        }
-      `}</style>
+    <div className='flex justify-between w-full px-[30px] py-[53px]'>
+      {logos.map((logo, index) => (
+        <img key={index} src={logo.src} alt={logo.alt} />
+      ))}
     </div>
   )
 }
