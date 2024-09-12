@@ -74,7 +74,7 @@ const Product = () => {
   }
 
   return (
-    <div className='w-full px-[5px] sm:px-[10px] mt-10'>
+    <div className='w-full px-[5px] sm:px-[10px] mt-[30px] sm:mt-10'>
       <div className='flex justify-between items-center px-[5px] sm:px-[10px]'>
         <div className='flex gap-[10px] items-center'>
           <QuickiIcon />
@@ -97,7 +97,7 @@ const Product = () => {
           </button>
         </div>
       </div>
-      <div className='mt-4'>
+      <div className='mt-[11px] sm:mt-4 sm:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
           {products.map((product) => (
             <div key={product.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
@@ -107,7 +107,7 @@ const Product = () => {
                   alt={`Product ${product.id}`}
                   className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
                 />
-                <div className='p-4'>
+                <div className='p-[10px] sm:p-4'>
                   <p className='text-[#4C4A48] font-bold text-[11px] sm:text-[18px]'>{product.title}</p>
                   <span className='flex items-center gap-2 text-[11px] sm:text-[16px] text-[#4C4A48] font-medium'>
                     <LocationIcon />
@@ -134,7 +134,7 @@ const Product = () => {
                     </span>
                   </div>
                   <div className='border mt-2'></div>
-                  <div className='mt-4'>
+                  <div className='mt-[7px] sm:mt-4'>
                     <div className='flex items-center justify-between'>
                       <div className='flex flex-col'>
                         <p className='italic text-[11px] sm:text-[18px] font-medium text-[#706C69] line-through'>
@@ -144,14 +144,14 @@ const Product = () => {
                       </div>
                       <AsyncIcon />
                     </div>
-                    <div className='flex flex-row justify-between mt-4 gap-[10px]'>
+                    <div className='flex flex-row justify-between mt-[7px] sm:mt-4 gap-[10px]'>
                       <div className='flex flex-col justify-end'>
                         <p className='text-[10px] sm:text-[14px] text-[#4C4A48] font-semibold flex justify-start sm:justify-end'>
                           Hết hạn sau
                         </p>
                         <p className='text-[14px] sm:text-[18px] text-[#E42024] font-bold'>{product.expiry}</p>
                       </div>
-                      <button className='py-2 w-full text-[12px] sm:text-[14px] sm:w-[202px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0'>
+                      <button className='sm:h-[42px] w-full text-[12px] sm:text-[14px] sm:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[6px] sm:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 sm:mt-0'>
                         Đặt hàng
                       </button>
                     </div>
