@@ -86,14 +86,14 @@ const ProductHot = () => {
           <button
             onClick={handlePrev}
             aria-label='Previous product'
-            className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] bg-primary rounded-[8px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
+            className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] bg-primary rounded-[4px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
           >
             <ArrowLeftBlackIcon />
           </button>
           <button
             onClick={handleNext}
             aria-label='Next product'
-            className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] bg-primary rounded-[8px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
+            className='w-[32px] h-[32px] md:w-[48px] md:h-[48px] bg-primary rounded-[4px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
           >
             <ArrowRightBlackIcon />
           </button>
@@ -153,7 +153,7 @@ const ProductHot = () => {
                       <button className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
                         <CartIcon />
                       </button>
-                      <button className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
+                      <button className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
                         Đặt hàng
                       </button>
                     </div>

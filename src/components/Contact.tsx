@@ -21,23 +21,23 @@ const Contact = () => {
               type='text'
               placeholder='Họ tên'
               aria-label='Họ tên'
-              className='px-[12px] py-[11.5px] md:px-[12px] md:py-[14.5px] border border-[#E1DEDD] rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[350px]'
+              className='px-[12px] py-[11.5px] md:px-[12px] md:py-[14.5px] border border-[#E1DEDD] rounded-[6px] md:rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[350px] text-[14px] font-medium'
             />
             <input
               type='tel'
               placeholder='Số điện thoại'
               aria-label='Số điện thoại'
-              className='px-[12px] py-[11.5px] md:px-[12px] md:py-[14.5px] border border-[#E1DEDD] rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[350px]'
+              className='px-[12px] py-[11.5px] md:px-[12px] md:py-[14.5px] border border-[#E1DEDD] rounded-[6px] md:rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[350px] text-[14px] font-medium'
             />
           </div>
           <textarea
             placeholder='Nội dung yêu cầu'
             aria-label='Nội dung yêu cầu'
-            className='px-[12px] py-[10px] border border-[#E1DEDD] rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[710px]'
+            className='px-[12px] py-[10px] border border-[#E1DEDD] rounded-[6px] md:rounded-[10px] focus:outline-none focus:border-primary w-full max-w-full md:max-w-[710px] text-[14px] font-medium'
             rows={4}
           />
           <div className='flex justify-end max-w-full md:max-w-[710px] mt-[10px]'>
-            <button className='px-4 py-[9px] w-[150px] bg-[#FFA21A] text-[#2C2A29] rounded-lg shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 text-[14px]'>
+            <button className='px-4 py-[9px] w-[150px] bg-[#FFA21A] text-[#2C2A29] rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 text-[14px]'>
               Gửi yêu cầu
             </button>
           </div>
