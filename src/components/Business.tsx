@@ -42,7 +42,9 @@ const settings = {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 2
+        slidesToShow: 2,
+        centerMode: true,
+        centerPadding: '10px'
       }
     }
   ]
@@ -50,12 +52,15 @@ const settings = {
 
 const Business = () => {
   return (
-    <div className='w-full px-[30px] py-[53px]'>
+    <div className='w-full sm:px-[76px] py-[34px] sm:py-[53px]'>
       <Slider {...settings}>
         {logos.map((logo, index) => (
-          <div key={index} className='p-4 flex justify-between'>
-            <img src={logo.src} alt={logo.alt} className='object-contain' />
-          </div>
+          <img
+            key={index}
+            src={logo.src}
+            alt={logo.alt}
+            className='object-contain flex items-center justify-center pr-10'
+          />
         ))}
       </Slider>
     </div>
