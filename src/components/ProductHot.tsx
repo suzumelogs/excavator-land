@@ -102,63 +102,68 @@ const ProductHot = () => {
       <div className='mt-[11px] md:mt-4 md:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
           {products.map((product) => (
-            <div key={product.id} className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px]'>
-              <div className='relative'>
-                <img
-                  src={product.image}
-                  alt={`Product ${product.id}`}
-                  className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
-                />
-                <div className='absolute top-2 left-[-4px]'>
-                  <HotIcon />
-                </div>
-                <div className='p-[10px] md:p-4 bg-white rounded-b-[10px]'>
-                  <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>{product.title}</p>
-                  <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
-                    <LocationIcon />
-                    {product.location}
-                  </span>
-                  <div className='flex flex-col gap-2'>
-                    <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48] mt-2'>
-                      <p>Năm sản xuất</p>
-                      <p>{product.year}</p>
-                    </div>
-                    <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
-                      <p>Thời gian sử dụng</p>
-                      <p>{product.usage}</p>
-                    </div>
-                    <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
-                      <p>Thời gian bàn giao</p>
-                      <p>{product.deliveryTime}</p>
-                    </div>
-                    <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
-                      Xem thêm thông tin
-                      <span className='hover:opacity-80 transition-opacity duration-300 cursor-pointer'>
-                        <ArrowRightPrimaryIcon />
-                      </span>
+            <div className='relative'>
+              <div
+                key={product.id}
+                className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'
+              >
+                <div className='relative'>
+                  <img
+                    src={product.image}
+                    alt={`Product ${product.id}`}
+                    className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
+                  />
+                  <div className='p-[10px] md:p-4 bg-white rounded-b-[10px]'>
+                    <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>{product.title}</p>
+                    <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
+                      <LocationIcon />
+                      {product.location}
                     </span>
-                  </div>
-                  <div className='border mt-2'></div>
-                  <div className='mt-[7px] md:mt-4'>
-                    <div className='flex items-center justify-between'>
-                      <div className='flex flex-col'>
-                        <p className='italic text-[11px] md:text-[18px] font-medium text-[#706C69] line-through'>
-                          {product.oldPrice}
-                        </p>
-                        <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>{product.newPrice}</p>
+                    <div className='flex flex-col gap-2'>
+                      <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48] mt-2'>
+                        <p>Năm sản xuất</p>
+                        <p>{product.year}</p>
                       </div>
-                      <AsyncIcon />
+                      <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
+                        <p>Thời gian sử dụng</p>
+                        <p>{product.usage}</p>
+                      </div>
+                      <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
+                        <p>Thời gian bàn giao</p>
+                        <p>{product.deliveryTime}</p>
+                      </div>
+                      <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
+                        Xem thêm thông tin
+                        <span className='hover:opacity-80 transition-opacity duration-300 cursor-pointer'>
+                          <ArrowRightPrimaryIcon />
+                        </span>
+                      </span>
                     </div>
-                    <div className='flex flex-row justify-between items-center mt-4 gap-[10px]'>
-                      <button className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
-                        <CartIcon />
-                      </button>
-                      <button className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
-                        Đặt hàng
-                      </button>
+                    <div className='border mt-2'></div>
+                    <div className='mt-[7px] md:mt-4'>
+                      <div className='flex items-center justify-between'>
+                        <div className='flex flex-col'>
+                          <p className='italic text-[11px] md:text-[18px] font-medium text-[#706C69] line-through'>
+                            {product.oldPrice}
+                          </p>
+                          <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>{product.newPrice}</p>
+                        </div>
+                        <AsyncIcon />
+                      </div>
+                      <div className='flex flex-row justify-between items-center mt-4 gap-[10px]'>
+                        <button className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
+                          <CartIcon />
+                        </button>
+                        <button className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
+                          Đặt hàng
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className='absolute top-2 left-[-4px]'>
+                <HotIcon />
               </div>
             </div>
           ))}
