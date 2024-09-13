@@ -52,14 +52,14 @@ const settings = {
 
 const Business = () => {
   return (
-    <div className='w-full sm:px-[76px] py-[34px] sm:py-[53px]'>
+    <div className='w-full sm:px-[0px] py-[34px] sm:py-[53px]'>
       <Slider {...settings}>
         {logos.map((logo, index) => (
           <img
             key={index}
             src={logo.src}
             alt={logo.alt}
-            className='object-contain flex items-center justify-center pr-10'
+            className='object-contain flex items-center justify-center pr-[30px] sm:pr-[0px] sm:px-[76px]'
           />
         ))}
       </Slider>
