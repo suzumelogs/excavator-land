@@ -25,12 +25,12 @@ const Footer = () => {
 
   return (
     <footer className='w-full'>
-      <div className='bg-secondary w-full py-10 px-5 md:px-[60px]'>
-        <img src={CmpLogo} alt='CoMacPro Logo' className='object-cover w-[150px] mx-auto md:mx-0' />
-        <div className='mt-[30px] flex flex-col md:flex-row gap-[30px] md:gap-[70px] justify-between w-full'>
+      <div className='bg-secondary w-full py-[30px] md:py-[40px] px-[10px] md:px-[60px]'>
+        <img src={CmpLogo} alt='CoMacPro Logo' className='object-cover w-[150px] md:mx-0' />
+        <div className='mt-[20px] md:mt-[30px] flex flex-col md:flex-row gap-[16px] md:gap-[70px] justify-between w-full'>
           <div>
-            <div className='flex flex-col gap-[10px]'>
-              <p className='font-semibold text-[18px] md:text-[20px] text-[#2C2A29]'>{companyInfo.name}</p>
+            <div className='flex flex-col gap-[8px] md:gap-[10px]'>
+              <p className='font-semibold text-[16px] md:text-[20px] text-[#2C2A29]'>{companyInfo.name}</p>
               <div className='flex gap-4 md:gap-8'>
                 <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
                   <p>Số GCNĐKDN</p>
@@ -45,14 +45,14 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className='mt-5 flex flex-col gap-[10px]'>
+            <div className='mt-[16px] md:mt-5 flex flex-col gap-[8px] md:gap-[10px]'>
               <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Trụ sở chính:</p>
               <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
                 <p>{companyInfo.address}</p>
               </div>
             </div>
 
-            <div className='flex mt-5 gap-[20px] md:gap-[30px]'>
+            <div className='flex mt-[16px] md:mt-5 gap-[20px] md:gap-[30px]'>
               <div className='flex flex-col gap-[10px]'>
                 <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Hotline</p>
                 <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='flex flex-col gap-[50px]'>
+          <div className='flex flex-col gap-[16px] md:gap-[50px]'>
             <div className='flex flex-col gap-[10px]'>
               <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Người dùng</p>
               <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
@@ -125,7 +125,7 @@ const Footer = () => {
                     <InstagramIcon />
                   </span>
                 </div>
-                <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] mx-auto md:mx-0 mt-5' />
+                <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] md:mx-0 mt-5' />
               </div>
             </div>
           </div>
