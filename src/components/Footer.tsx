@@ -52,7 +52,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className='flex mt-[16px] md:mt-5 gap-[20px] md:gap-[30px]'>
+            <div className='flex mt-[16px] md:mt-5 gap-[30px]'>
               <div className='flex flex-col gap-[10px]'>
                 <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Hotline</p>
                 <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
@@ -68,31 +68,72 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='flex flex-col gap-[16px] md:gap-[50px]'>
-            <div className='flex flex-col gap-[10px]'>
-              <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Người dùng</p>
-              <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
-                {userLinks.map((link, index) => (
-                  <p className='hover:opacity-70 transition-opacity duration-300 cursor-pointer' key={index}>
-                    {link}
-                  </p>
-                ))}
+          <div className='flex justify-between'>
+            <div className='flex flex-col gap-[16px] md:gap-[50px]'>
+              <div className='flex flex-col gap-[10px]'>
+                <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Người dùng</p>
+                <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
+                  {userLinks.map((link, index) => (
+                    <p className='hover:opacity-70 transition-opacity duration-300 cursor-pointer' key={index}>
+                      {link}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div className='flex flex-col gap-[10px]'>
+                <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Đối tác</p>
+                <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
+                  {partnerLinks.map((link, index) => (
+                    <p className='hover:opacity-70 transition-opacity duration-300 cursor-pointer' key={index}>
+                      {link}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              <div className='block md:hidden'>
+                <div className='flex flex-col gap-[30px]'>
+                  <div className='flex flex-col gap-[10px]'>
+                    <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Mạng xã hội</p>
+                    <div className='flex gap-4 md:justify-start'>
+                      <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
+                        <YoutubeIcon />
+                      </span>
+                      <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
+                        <LinkedinIcon />
+                      </span>
+                      <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
+                        <FacebookIcon />
+                      </span>
+                      <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
+                        <InstagramIcon />
+                      </span>
+                    </div>
+                    <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] md:mx-0 mt-5 hidden md:block' />
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className='flex flex-col gap-[10px]'>
-              <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Đối tác</p>
-              <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
-                {partnerLinks.map((link, index) => (
-                  <p className='hover:opacity-70 transition-opacity duration-300 cursor-pointer' key={index}>
-                    {link}
-                  </p>
-                ))}
+            <div className='block md:hidden'>
+              <div>
+                <div className='flex flex-col gap-[30px]'>
+                  <div className='flex flex-col gap-[10px]'>
+                    <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Truy cập nhanh</p>
+                    <div className='font-normal text-[14px] md:text-[16px] text-[#4C4A48]'>
+                      {quickAccess.map((item, index) => (
+                        <p className='hover:opacity-70 transition-opacity duration-300 cursor-pointer' key={index}>
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
+              <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] md:mx-0 mt-5' />
             </div>
           </div>
 
-          <div>
+          <div className='hidden md:block'>
             <div className='flex flex-col gap-[30px]'>
               <div className='flex flex-col gap-[10px]'>
                 <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Truy cập nhanh</p>
@@ -107,11 +148,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div className='hidden md:block'>
             <div className='flex flex-col gap-[30px]'>
               <div className='flex flex-col gap-[10px]'>
                 <p className='font-semibold text-[16px] md:text-[18px] text-[#2C2A29]'>Mạng xã hội</p>
-                <div className='flex gap-4 sm:justify-start'>
+                <div className='flex gap-4 md:justify-start'>
                   <span className='hover:opacity-70 transition-opacity duration-300 cursor-pointer'>
                     <YoutubeIcon />
                   </span>
@@ -125,7 +166,7 @@ const Footer = () => {
                     <InstagramIcon />
                   </span>
                 </div>
-                <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] md:mx-0 mt-5' />
+                <img src={BctLogo} alt='Bct Logo' className='object-cover w-[150px] md:mx-0 mt-5 hidden md:block' />
               </div>
             </div>
           </div>

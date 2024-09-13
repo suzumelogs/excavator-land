@@ -15,7 +15,7 @@
 
 // const PrevArrow: React.FC<ArrowProps> = ({ className, onClick }) => (
 //   <button
-//     className={`${className} absolute top-1/2 left-4 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-primary text-white rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-300`}
+//     className={`${className} absolute top-1/2 left-4 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 bg-primary text-white rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-300`}
 //     onClick={onClick}
 //   >
 //     &lt;
@@ -24,7 +24,7 @@
 
 // const NextArrow: React.FC<ArrowProps> = ({ className, onClick }) => (
 //   <button
-//     className={`${className} absolute top-1/2 right-4 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 bg-primary text-white rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-300`}
+//     className={`${className} absolute top-1/2 right-4 transform -translate-y-1/2 z-10 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 bg-primary text-white rounded-full shadow-lg opacity-75 hover:opacity-100 transition-opacity duration-300`}
 //     onClick={onClick}
 //   >
 //     &gt;
