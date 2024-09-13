@@ -9,6 +9,7 @@ import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
 import CartIcon from '../assets/svgs/cart-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
+import HotIcon from '../assets/svgs/hot-icon.svg'
 import { products } from '~/constants'
 import styled from 'styled-components'
 
@@ -101,14 +102,17 @@ const ProductHot = () => {
       <div className='mt-[11px] sm:mt-4 sm:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
           {products.map((product) => (
-            <div key={product.id} className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
+            <div key={product.id} className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px]'>
               <div className='relative'>
                 <img
                   src={product.image}
                   alt={`Product ${product.id}`}
                   className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
                 />
-                <div className='p-[10px] sm:p-4 bg-white'>
+                <div className='absolute top-2 left-[-4px]'>
+                  <HotIcon />
+                </div>
+                <div className='p-[10px] sm:p-4 bg-white rounded-b-[10px]'>
                   <p className='text-[#4C4A48] font-bold text-[11px] sm:text-[18px]'>{product.title}</p>
                   <span className='flex items-center gap-2 text-[11px] sm:text-[16px] text-[#4C4A48] font-medium'>
                     <LocationIcon />
