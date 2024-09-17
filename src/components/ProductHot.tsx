@@ -75,6 +75,10 @@ const ProductHot = () => {
     }
   }
 
+  const handleSubmit = () => {
+    window.location.href = 'https://comacpro.com/'
+  }
+
   return (
     <div className='w-full bg-secondary px-[5px] md:px-[10px] mt-[30px] md:mt-10 py-[30px] md:py-[40px]'>
       <div className='flex justify-between items-center px-[5px] md:px-[10px]'>
@@ -154,7 +158,10 @@ const ProductHot = () => {
                         <button className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'>
                           <CartIcon />
                         </button>
-                        <button className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'>
+                        <button
+                          onClick={handleSubmit}
+                          className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'
+                        >
                           Đặt hàng
                         </button>
                       </div>

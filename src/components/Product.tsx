@@ -73,6 +73,10 @@ const Product = () => {
     }
   }
 
+  const handleSubmit = () => {
+    window.location.href = 'https://comacpro.com/'
+  }
+
   return (
     <div className='w-full px-[5px] md:px-[10px] mt-[30px] md:mt-10'>
       <div className='flex justify-between items-center px-[5px] md:px-[10px]'>
@@ -151,7 +155,10 @@ const Product = () => {
                         </p>
                         <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>{product.expiry}</p>
                       </div>
-                      <button className='md:h-[42px] w-full text-[12px] md:text-[14px] md:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[4px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 md:mt-0'>
+                      <button
+                        onClick={handleSubmit}
+                        className='md:h-[42px] w-full text-[12px] md:text-[14px] md:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[4px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 md:mt-0'
+                      >
                         Đặt hàng
                       </button>
                     </div>
