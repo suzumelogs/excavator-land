@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -10,6 +10,7 @@ import LocationIcon from '../assets/svgs/location-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
 import { products } from '~/constants'
 import styled from 'styled-components'
+import { getListProducts } from '~/api'
 
 const StyledSlider = styled(Slider)`
   .slick-slide {
@@ -22,6 +23,7 @@ const StyledSlider = styled(Slider)`
 
 const Product = () => {
   const sliderRef = useRef<Slider | null>(null)
+  const [data, setData] = useState([])
 
   const settings = {
     dots: false,
@@ -60,6 +62,19 @@ const Product = () => {
       }
     ]
   }
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getListProducts()
+        setData(data)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
 
   const handlePrev = () => {
     if (sliderRef.current) {
