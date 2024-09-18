@@ -207,7 +207,7 @@ const Product = () => {
                       </div>
                     </div>
                     <div className='flex flex-row justify-between mt-[7px] md:mt-4 gap-[10px]'>
-                      <div className='flex flex-col justify-end w-full'>
+                      <div className='flex flex-col justify-end w-full md:w-auto'>
                         <p className='text-[10px] md:text-[14px] text-[#4C4A48] font-semibold flex justify-start md:justify-end'>
                           Hết hạn sau
                         </p>
