@@ -1,5 +1,17 @@
 import axios from 'axios'
 
+export const getListProductsPreorder = async () => {
+  try {
+    const response = await axios.get(
+      'https://n8n.comacpro.vn/webhook/3ca93579-8972-4540-b3fa-b50a3058f732?type=preorder'
+    )
+    return response.data
+  } catch (error) {
+    console.error('Error fetching product list:', error)
+    throw error
+  }
+}
+
 export const getListProducts = async () => {
   try {
     const response = await axios.get('https://n8n.comacpro.vn/webhook/3ca93579-8972-4540-b3fa-b50a3058f732')

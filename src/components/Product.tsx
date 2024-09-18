@@ -8,7 +8,7 @@ import ArrowRightWhiteIcon from '../assets/svgs/arrow-right-white-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
 import styled from 'styled-components'
-import { getListProducts } from '~/api'
+import { getListProductsPreorder } from '~/api'
 
 const StyledSlider = styled(Slider)`
   .slick-slide {
@@ -77,7 +77,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await getListProducts()
+        const response = await getListProductsPreorder()
         const fetchedData = response?.data
 
         setData(fetchedData)
