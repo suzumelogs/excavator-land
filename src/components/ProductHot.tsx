@@ -138,7 +138,7 @@ const ProductHot = () => {
                 <div className='relative'>
                   <img
                     onClick={() => handleSubmit(item?.ProductUrl)}
-                    src={JSON.parse(item?.image)[Math.floor(Math.random() * JSON.parse(item?.image).length)]}
+                    src={item?.image}
                     alt={`Product ${item?.id}`}
                     className='object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer'
                   />
@@ -189,7 +189,7 @@ const ProductHot = () => {
                         </div>
                       </div>
                       <div className='flex flex-row justify-between items-center mt-4 gap-[10px]'>
-                        <div></div>
+                        <div className='hidden md:block'></div>
                         <button
                           onClick={() => handleSubmit(item?.ProductUrl)}
                           className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'
