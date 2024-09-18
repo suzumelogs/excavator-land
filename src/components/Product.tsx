@@ -105,10 +105,18 @@ const Product = () => {
     window.open(url, '_blank')
   }
 
-  const convertMinutesToTime = (minutes: number) => {
-    const days = Math.floor(minutes / 1440)
-    const hours = Math.floor((minutes % 1440) / 60)
-    const mins = minutes % 60
+  const convertSecondsToTime = (totalSeconds: number): string => {
+    const secondsInDay = 24 * 3600
+    const secondsInHour = 3600
+    const secondsInMinute = 60
+
+    const days = Math.floor(totalSeconds / secondsInDay)
+    const remainingAfterDays = totalSeconds % secondsInDay
+
+    const hours = Math.floor(remainingAfterDays / secondsInHour)
+    const remainingAfterHours = remainingAfterDays % secondsInHour
+
+    const mins = Math.floor(remainingAfterHours / secondsInMinute)
 
     return `${days}d:${hours}h:${mins}m`
   }
@@ -197,7 +205,7 @@ const Product = () => {
                           Hết hạn sau
                         </p>
                         <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>
-                          {convertMinutesToTime(item?.EndDate == '' ? 0 : parseInt(item?.EndDate, 10))}
+                          {convertSecondsToTime(item?.EndDate == '' ? 0 : parseInt(item?.EndDate, 10))}
                         </p>
                       </div>
                       <button
