@@ -8,7 +8,6 @@ import ArrowRightWhiteIcon from '../assets/svgs/arrow-right-white-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
-import { products } from '~/constants'
 import styled from 'styled-components'
 import { getListProducts } from '~/api'
 
@@ -21,9 +20,22 @@ const StyledSlider = styled(Slider)`
   }
 `
 
+type Product = {
+  id: string
+  name: string
+  model: string
+  brand: string
+  manufactureYear: number
+  usedhours: string
+  price: number
+  ProductUrl: string
+  EndDate: string
+  image: string
+}
+
 const Product = () => {
   const sliderRef = useRef<Slider | null>(null)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<Product[]>([])
 
   const settings = {
     dots: false,
@@ -66,8 +78,12 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await getListProducts()
-        setData(data)
+        const response = await getListProducts()
+        const fetchedData = response?.data
+
+        const randomizedData = fetchedData.sort(() => Math.random() - 0.5)
+
+        setData(randomizedData)
       } catch (error) {
         console.error('Error fetching products:', error)
       }
@@ -88,8 +104,8 @@ const Product = () => {
     }
   }
 
-  const handleSubmit = () => {
-    window.location.href = 'https://comacpro.com/'
+  const handleSubmit = (url: string) => {
+    window.location.href = url
   }
 
   return (
@@ -118,32 +134,36 @@ const Product = () => {
       </div>
       <div className='mt-[11px] md:mt-4 md:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
-          {products.map((product) => (
-            <div key={product.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
+          {data.map((item) => (
+            <div key={item?.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
               <div className='relative'>
                 <img
-                  src={product.image}
-                  alt={`Product ${product.id}`}
-                  className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
+                  src={item?.image}
+                  alt={`Product ${item?.id}`}
+                  className='object-fill transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                 />
                 <div className='p-[10px] md:p-4'>
-                  <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>{product.title}</p>
+                  <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>
+                    {item?.name} {item?.brand} {item?.model} - {item?.manufactureYear}
+                  </p>
                   <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
                     <LocationIcon />
-                    {product.location}
+                    {/* {product.location} */}
+                    Hà Nội
                   </span>
                   <div className='flex flex-col gap-2'>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48] mt-2'>
                       <p>Năm sản xuất</p>
-                      <p>{product.year}</p>
+                      <p>{item?.manufactureYear}</p>
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian sử dụng</p>
-                      <p>{product.usage}</p>
+                      <p>{item?.usedhours} giờ</p>
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian bàn giao</p>
-                      <p>{product.deliveryTime}</p>
+                      {/* <p>{product.deliveryTime}</p> */}
+                      <p>Có sẵn</p>
                     </div>
                     <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
                       Xem thêm thông tin
@@ -157,9 +177,11 @@ const Product = () => {
                     <div className='flex items-center justify-between'>
                       <div className='flex flex-col'>
                         <p className='italic text-[11px] md:text-[18px] font-medium text-[#706C69] line-through'>
-                          {product.oldPrice}
+                          {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                         </p>
-                        <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>{product.newPrice}</p>
+                        <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>
+                          {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                        </p>
                       </div>
                       <AsyncIcon />
                     </div>
@@ -168,10 +190,12 @@ const Product = () => {
                         <p className='text-[10px] md:text-[14px] text-[#4C4A48] font-semibold flex justify-start md:justify-end'>
                           Hết hạn sau
                         </p>
-                        <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>{product.expiry}</p>
+                        <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>
+                          {item?.EndDate == '' ? 0 : item?.EndDate}m
+                        </p>
                       </div>
                       <button
-                        onClick={handleSubmit}
+                        onClick={() => handleSubmit(item?.ProductUrl)}
                         className='md:h-[42px] w-full text-[12px] md:text-[14px] md:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[4px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 md:mt-0'
                       >
                         Đặt hàng
