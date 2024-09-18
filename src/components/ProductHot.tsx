@@ -143,7 +143,10 @@ const ProductHot = () => {
                     className='object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer'
                   />
                   <div className='p-[10px] md:p-4 bg-white rounded-b-[10px]'>
-                    <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px] truncate'>
+                    <p
+                      onClick={() => handleSubmit(item?.ProductUrl)}
+                      className='text-[#4C4A48] font-bold text-[11px] md:text-[18px] truncate cursor-pointer'
+                    >
                       {item?.name} {item?.brand} {item?.model} - {item?.manufactureYear}
                     </p>
                     <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
