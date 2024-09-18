@@ -2,7 +2,10 @@ import FinalMMasterImage from '../../assets/images/finals/final-master.png'
 
 const AutoSlider = () => {
   const handleSubmit = () => {
-    window.open('https://comacpro.com/', '_blank')
+    window.open(
+      'https://comacpro.com/register/?gidzl=2hIgRC1_Psm3gg9YmcTWQ0AfhM7VOpfX5QwgFDHjR3P6fAayr3m-Cn7n_cpJCszW4lcjRMNp-_GvotjcO0&gidzl=HFH_BhdYwLf9wNyWllhkNaZcVIQZyUvUKESgAgtoxbPOj2ijggYuK0kxVIxx_-jG2BnrUJJ59QTDi-3hMW',
+      '_blank'
+    )
   }
 
   return (
