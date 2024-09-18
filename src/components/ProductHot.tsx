@@ -145,7 +145,6 @@ const ProductHot = () => {
                   />
                   <div className='p-[10px] md:p-4 bg-white rounded-b-[10px]'>
                     <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>
-                      {' '}
                       {item?.name} {item?.brand} {item?.model} - {item?.manufactureYear}
                     </p>
                     <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
