@@ -183,15 +183,8 @@ const ProductHot = () => {
                             {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                           </p>
                         </div>
-                        {/* <AsyncIcon /> */}
                       </div>
                       <div className='flex flex-row justify-between items-center mt-4 gap-[10px]'>
-                        {/* <button
-                          onClick={() => handleSubmit(item?.ProductUrl)}
-                          className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
-                        >
-                          <CartIcon />
-                        </button> */}
                         <div></div>
                         <button
                           onClick={() => handleSubmit(item?.ProductUrl)}

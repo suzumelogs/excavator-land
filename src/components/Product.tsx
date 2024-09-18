@@ -201,7 +201,6 @@ const Product = () => {
                           {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                         </p>
                       </div>
-                      {/* <AsyncIcon /> */}
                     </div>
                     <div className='flex flex-row justify-between mt-[7px] md:mt-4 gap-[10px]'>
                       <div className='flex flex-col justify-end'>
