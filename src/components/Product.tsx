@@ -81,9 +81,7 @@ const Product = () => {
         const response = await getListProducts()
         const fetchedData = response?.data
 
-        const randomizedData = fetchedData.sort(() => Math.random() - 0.5)
-
-        setData(randomizedData)
+        setData(fetchedData)
       } catch (error) {
         console.error('Error fetching products:', error)
       }
@@ -138,7 +136,7 @@ const Product = () => {
             <div key={item?.id} className='border max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
               <div className='relative'>
                 <img
-                  src={item?.image}
+                  src={JSON.parse(item?.image)[Math.floor(Math.random() * JSON.parse(item?.image).length)]}
                   alt={`Product ${item?.id}`}
                   className='object-fill transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                 />

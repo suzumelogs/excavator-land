@@ -83,9 +83,7 @@ const ProductHot = () => {
         const response = await getListProducts()
         const fetchedData = response?.data
 
-        const randomizedData = fetchedData.sort(() => Math.random() - 0.5)
-
-        setData(randomizedData)
+        setData(fetchedData)
       } catch (error) {
         console.error('Error fetching products:', error)
       }
@@ -137,11 +135,11 @@ const ProductHot = () => {
       <div className='mt-[11px] md:mt-4 md:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
           {data.map((item) => (
-            <div className='relative'>
-              <div key={item?.id} className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
+            <div key={item?.id} className='relative'>
+              <div className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
                 <div className='relative'>
                   <img
-                    src={item?.image}
+                    src={JSON.parse(item?.image)[Math.floor(Math.random() * JSON.parse(item?.image).length)]}
                     alt={`Product ${item?.id}`}
                     className='object-fill transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                   />
