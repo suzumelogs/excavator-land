@@ -138,7 +138,7 @@ const Product = () => {
                 <img
                   src={JSON.parse(item?.image)[Math.floor(Math.random() * JSON.parse(item?.image).length)]}
                   alt={`Product ${item?.id}`}
-                  className='object-fill transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
+                  className='object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                 />
                 <div className='p-[10px] md:p-4'>
                   <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>
