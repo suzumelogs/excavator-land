@@ -106,6 +106,10 @@ const Product = () => {
   }
 
   const convertSecondsToTime = (totalSeconds: number): string => {
+    if (isNaN(totalSeconds) || totalSeconds < 0) {
+      return '0d:0h:0m'
+    }
+
     const secondsInDay = 24 * 3600
     const secondsInHour = 3600
     const secondsInMinute = 60
