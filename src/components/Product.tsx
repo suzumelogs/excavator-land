@@ -7,7 +7,6 @@ import ArrowLeftWhiteIcon from '../assets/svgs/arrow-left-white-icon.svg'
 import ArrowRightWhiteIcon from '../assets/svgs/arrow-right-white-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
-import AsyncIcon from '../assets/svgs/async-icon.svg'
 import styled from 'styled-components'
 import { getListProducts } from '~/api'
 
@@ -190,7 +189,7 @@ const Product = () => {
                           {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                         </p>
                       </div>
-                      <AsyncIcon />
+                      {/* <AsyncIcon /> */}
                     </div>
                     <div className='flex flex-row justify-between mt-[7px] md:mt-4 gap-[10px]'>
                       <div className='flex flex-col justify-end'>

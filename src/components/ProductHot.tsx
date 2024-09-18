@@ -7,8 +7,6 @@ import ArrowLeftBlackIcon from '../assets/svgs/arrow-left-black-icon.svg'
 import ArrowRightBlackIcon from '../assets/svgs/arrow-right-black-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
-import CartIcon from '../assets/svgs/cart-icon.svg'
-import AsyncIcon from '../assets/svgs/async-icon.svg'
 import HotIcon from '../assets/svgs/hot-icon.svg'
 import styled from 'styled-components'
 import { getListProducts } from '~/api'
@@ -185,15 +183,16 @@ const ProductHot = () => {
                             {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                           </p>
                         </div>
-                        <AsyncIcon />
+                        {/* <AsyncIcon /> */}
                       </div>
                       <div className='flex flex-row justify-between items-center mt-4 gap-[10px]'>
-                        <button
+                        {/* <button
                           onClick={() => handleSubmit(item?.ProductUrl)}
                           className='w-[40px] h-[30px] md:w-[44px] md:h-[42px] bg-white border-[1.5px] border-[#4C4A48] rounded-[6px] md:rounded-[10px] flex items-center justify-center hover:opacity-80 transition-opacity duration-300'
                         >
                           <CartIcon />
-                        </button>
+                        </button> */}
+                        <div></div>
                         <button
                           onClick={() => handleSubmit(item?.ProductUrl)}
                           className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'
