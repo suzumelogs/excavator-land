@@ -217,7 +217,7 @@ const Product = () => {
                       </div>
                       <button
                         onClick={() => handleSubmit(item?.ProductUrl)}
-                        className='md:h-[42px] w-full text-[12px] md:text-[14px] md:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[4px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300 mt-2 md:mt-0'
+                        className={`${parseInt(item?.EndDate) > 0 ? 'opacity-100 hover:opacity-80' : 'opacity-50'} md:h-[42px] w-full text-[12px] md:text-[14px] md:max-w-[202px] bg-[#FFA21A] text-[#121110] rounded-[4px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold  transition-opacity duration-300 mt-2 md:mt-0`}
                       >
                         Đặt hàng
                       </button>
