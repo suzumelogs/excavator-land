@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -10,8 +10,8 @@ import LocationIcon from '../assets/svgs/location-icon.svg'
 import CartIcon from '../assets/svgs/cart-icon.svg'
 import AsyncIcon from '../assets/svgs/async-icon.svg'
 import HotIcon from '../assets/svgs/hot-icon.svg'
-import { products } from '~/constants'
 import styled from 'styled-components'
+import { getListProducts } from '~/api'
 
 const StyledSlider = styled(Slider)`
   .slick-slide {
@@ -22,8 +22,22 @@ const StyledSlider = styled(Slider)`
   }
 `
 
+type Product = {
+  id: string
+  name: string
+  model: string
+  brand: string
+  manufactureYear: number
+  usedhours: string
+  price: number
+  ProductUrl: string
+  EndDate: string
+  image: string
+}
+
 const ProductHot = () => {
   const sliderRef = useRef<Slider | null>(null)
+  const [data, setData] = useState<Product[]>([])
 
   const settings = {
     dots: false,
@@ -63,6 +77,21 @@ const ProductHot = () => {
     ]
   }
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await getListProducts()
+        const fetchedData = response?.data
+
+        setData(fetchedData)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+      }
+    }
+
+    fetchProducts()
+  }, [])
+
   const handlePrev = () => {
     if (sliderRef.current) {
       sliderRef.current.slickPrev()
@@ -75,8 +104,8 @@ const ProductHot = () => {
     }
   }
 
-  const handleSubmit = () => {
-    window.location.href = 'https://comacpro.com/'
+  const handleSubmit = (url: string) => {
+    window.location.href = url
   }
 
   return (
@@ -105,36 +134,36 @@ const ProductHot = () => {
       </div>
       <div className='mt-[11px] md:mt-4 md:px-[5px]'>
         <StyledSlider {...settings} ref={sliderRef}>
-          {products.map((product) => (
-            <div className='relative'>
-              <div
-                key={product.id}
-                className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'
-              >
+          {data.map((item) => (
+            <div key={item?.id} className='relative'>
+              <div className='border-[#ECECEC] max-w-[calc(25% - 18px)] rounded-[10px] overflow-hidden'>
                 <div className='relative'>
                   <img
-                    src={product.image}
-                    alt={`Product ${product.id}`}
-                    className='object-cover transition-transform duration-300 transform hover:scale-105 w-full'
+                    src={JSON.parse(item?.image)[Math.floor(Math.random() * JSON.parse(item?.image).length)]}
+                    alt={`Product ${item?.id}`}
+                    className='object-fill transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                   />
                   <div className='p-[10px] md:p-4 bg-white rounded-b-[10px]'>
-                    <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>{product.title}</p>
+                    <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>
+                      {' '}
+                      {item?.name} {item?.brand} {item?.model} - {item?.manufactureYear}
+                    </p>
                     <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
                       <LocationIcon />
-                      {product.location}
+                      Hà Nội
                     </span>
                     <div className='flex flex-col gap-2'>
                       <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48] mt-2'>
-                        <p>Năm sản xuất</p>
-                        <p>{product.year}</p>
+                        <p>Tình trạng</p>
+                        <p>Đã qua sử dụng</p>
                       </div>
                       <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                         <p>Thời gian sử dụng</p>
-                        <p>{product.usage}</p>
+                        <p>{item?.usedhours} giờ</p>
                       </div>
                       <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                         <p>Thời gian bàn giao</p>
-                        <p>{product.deliveryTime}</p>
+                        <p>Có sẵn</p>
                       </div>
                       <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
                         Xem thêm thông tin
@@ -148,9 +177,11 @@ const ProductHot = () => {
                       <div className='flex items-center justify-between'>
                         <div className='flex flex-col'>
                           <p className='italic text-[11px] md:text-[18px] font-medium text-[#706C69] line-through'>
-                            {product.oldPrice}
+                            {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
                           </p>
-                          <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>{product.newPrice}</p>
+                          <p className='font-semibold text-[#FFA21A] text-[14px] md:text-[24px]'>
+                            {item?.price?.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                          </p>
                         </div>
                         <AsyncIcon />
                       </div>
@@ -159,7 +190,7 @@ const ProductHot = () => {
                           <CartIcon />
                         </button>
                         <button
-                          onClick={handleSubmit}
+                          onClick={() => handleSubmit(item?.ProductUrl)}
                           className='h-[30px] md:h-[42px] w-full text-[12px] md:text-[14px] md:w-[245px] bg-[#FFA21A] text-[#2C2A29] rounded-[6px] md:rounded-[10px] shadow-md transform focus:outline-none focus:ring-2 focus:ring-[#FFA21A] opacity-100 font-semibold hover:opacity-80 transition-opacity duration-300'
                         >
                           Đặt hàng
