@@ -148,7 +148,6 @@ const Product = () => {
                   </p>
                   <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
                     <LocationIcon />
-                    {/* {product.location} */}
                     Hà Nội
                   </span>
                   <div className='flex flex-col gap-2'>
@@ -162,7 +161,6 @@ const Product = () => {
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian bàn giao</p>
-                      {/* <p>{product.deliveryTime}</p> */}
                       <p>Có sẵn</p>
                     </div>
                     <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
