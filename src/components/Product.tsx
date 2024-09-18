@@ -103,7 +103,15 @@ const Product = () => {
   }
 
   const handleSubmit = (url: string) => {
-    window.location.href = url
+    window.open(url, '_blank')
+  }
+
+  const convertMinutesToTime = (minutes: number) => {
+    const days = Math.floor(minutes / 1440)
+    const hours = Math.floor((minutes % 1440) / 60)
+    const mins = minutes % 60
+
+    return `${days}d:${hours}h:${mins}m`
   }
 
   return (
@@ -141,7 +149,7 @@ const Product = () => {
                   className='object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px]'
                 />
                 <div className='p-[10px] md:p-4'>
-                  <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px]'>
+                  <p className='text-[#4C4A48] font-bold text-[11px] md:text-[18px] truncate'>
                     {item?.name} {item?.brand} {item?.model} - {item?.manufactureYear}
                   </p>
                   <span className='flex items-center gap-2 text-[11px] md:text-[16px] text-[#4C4A48] font-medium'>
@@ -161,7 +169,10 @@ const Product = () => {
                       <p>Thời gian bàn giao</p>
                       <p>Có sẵn</p>
                     </div>
-                    <span className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48]'>
+                    <span
+                      onClick={() => handleSubmit(item?.ProductUrl)}
+                      className='items-center gap-2 flex justify-end text-[10px] md:text-[14px] font-semibold text-[#4C4A48] cursor-pointer'
+                    >
                       Xem thêm thông tin
                       <span className='hover:opacity-80 transition-opacity duration-300 cursor-pointer'>
                         <ArrowRightPrimaryIcon />
@@ -187,7 +198,7 @@ const Product = () => {
                           Hết hạn sau
                         </p>
                         <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>
-                          {item?.EndDate == '' ? 0 : item?.EndDate}m
+                          {convertMinutesToTime(item?.EndDate == '' ? 0 : parseInt(item?.EndDate, 10))}
                         </p>
                       </div>
                       <button
