@@ -159,9 +159,9 @@ const Product = () => {
                   onClick={() => handleSubmit(item?.ProductUrl)}
                   src={item?.image}
                   alt={`Product ${item?.id}`}
-                  className={`object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer ${parseInt(item?.EndDate) <= 0 ? 'opacity-50' : ''}`}
+                  className={`object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer ${parseInt(item?.EndDate) <= 60 ? 'opacity-50' : ''}`}
                 />
-                {parseInt(item?.EndDate) <= 0 && (
+                {parseInt(item?.EndDate) <= 60 && (
                   <div className='absolute top-[10%] right-[38%]'>
                     <img src={SoldOutLogo} alt='Sold Out' className='w-[50px] md:w-[100px]' />{' '}
                   </div>
@@ -184,11 +184,11 @@ const Product = () => {
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian sử dụng</p>
-                      <p>{Number(item?.usedhours) > 0 ? item?.usedhours + ' giờ' : '-'}</p>
+                      <p>{parseInt(item?.usedhours) > 0 ? item?.usedhours + ' giờ' : '-'}</p>
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian bàn giao</p>
-                      <p>Có sẵn</p>
+                      <p>{parseInt(item?.EndDate) > 0 ? 'Có sẵn' : '-'}</p>
                     </div>
                     <span
                       onClick={() => handleSubmit(item?.ProductUrl)}
@@ -218,7 +218,7 @@ const Product = () => {
                           Hết hạn sau
                         </p>
                         <p className='text-[14px] md:text-[18px] text-[#E42024] font-bold'>
-                          {parseInt(item?.EndDate) > 0 ? convertSecondsToTime(parseInt(item?.EndDate, 10)) : 'Đã bán'}
+                          {parseInt(item?.EndDate) > 60 ? convertSecondsToTime(parseInt(item?.EndDate, 10)) : 'Đã bán'}
                         </p>
                       </div>
                       <button
