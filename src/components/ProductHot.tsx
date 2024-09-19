@@ -160,7 +160,7 @@ const ProductHot = () => {
                       </div>
                       <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                         <p>Thời gian sử dụng</p>
-                        <p>{Number(item?.usedhours) ? item?.usedhours : '-'} giờ</p>
+                        <p>{Number(item?.usedhours) > 0 ? item?.usedhours + ' giờ' : '-'}</p>
                       </div>
                       <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                         <p>Thời gian bàn giao</p>

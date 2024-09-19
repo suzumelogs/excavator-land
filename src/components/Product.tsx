@@ -180,11 +180,11 @@ const Product = () => {
                   <div className='flex flex-col gap-2'>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48] mt-2'>
                       <p>Năm sản xuất</p>
-                      <p>{item?.manufactureYear}</p>
+                      <p>{Number(item?.manufactureYear) > 0 ? item?.manufactureYear : '-'}</p>
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian sử dụng</p>
-                      <p>{Number(item?.usedhours) ? item?.usedhours : '-'} giờ</p>
+                      <p>{Number(item?.usedhours) > 0 ? item?.usedhours + ' giờ' : '-'}</p>
                     </div>
                     <div className='flex justify-between items-center text-[10px] md:text-[14px] font-medium text-[#4C4A48]'>
                       <p>Thời gian bàn giao</p>
