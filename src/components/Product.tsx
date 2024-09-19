@@ -7,6 +7,7 @@ import ArrowLeftWhiteIcon from '../assets/svgs/arrow-left-white-icon.svg'
 import ArrowRightWhiteIcon from '../assets/svgs/arrow-right-white-icon.svg'
 import ArrowRightPrimaryIcon from '../assets/svgs/arrow-right-primary-icon.svg'
 import LocationIcon from '../assets/svgs/location-icon.svg'
+import SoldOutLogo from '../assets/images/logo/slo-logo.png'
 import styled from 'styled-components'
 import { getListProductsPreorder } from '~/api'
 
@@ -158,8 +159,13 @@ const Product = () => {
                   onClick={() => handleSubmit(item?.ProductUrl)}
                   src={item?.image}
                   alt={`Product ${item?.id}`}
-                  className='object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer'
+                  className={`object-cover object-center transition-transform duration-300 transform hover:scale-105 w-full max-h-[112px] md:max-h-[209px] cursor-pointer ${parseInt(item?.EndDate) <= 0 ? 'opacity-50' : ''}`}
                 />
+                {parseInt(item?.EndDate) <= 0 && (
+                  <div className='absolute top-[10%] right-[38%]'>
+                    <img src={SoldOutLogo} alt='Sold Out' className='w-[50px] md:w-[100px]' />{' '}
+                  </div>
+                )}
                 <div className='p-[10px] md:p-4'>
                   <p
                     onClick={() => handleSubmit(item?.ProductUrl)}
